@@ -29,8 +29,9 @@ Demo project for setup load balancer with 2 web server
 6.  Open up Load balancer interface to see the web application[http://localhost:8081/](http://localhost:8081/). 
 7.  Open up [http://192.168.56.11/](http://192.168.56.11/) in a browser to see if web1's Apache is working.
 8.  Open up [http://192.168.56.12/](http://192.168.56.12/) in a browser to see if web2's Apache is working.
-5.  To stop Apache on one of the webservers to simulate an outage, run ``` sudo service apache2 stop ```  To start it again, run ``` sudo service apache2 start ```
-7.  To make changes to haproxy, edit the config file with ``` sudo nano /etc/haproxy/haproxy.cfg ```  When you want to apply the changes, run ``` sudo service haproxy reload ```  If you break things and want to reset back, just run ``` sudo cp /etc/haproxy/haproxy.cfg.orig /etc/haproxy/haproxy.cfg && sudo service haproxy reload ```
-8.  When you're all done, type ``` exit ``` at the shell to get back to your local terminal.
-9.  To shut down the VM's, run ``` vagrant halt web1 web2 haproxy ```
-10.  To remove the VM's from your hard drive, run ``` vagrant destroy web1 web2 haproxy ```
+9.  To stop Apache on one of the webservers to simulate an outage, run ``` sudo service apache2 stop ```  To start it again, run ``` sudo service apache2 start ```
+10. To make changes to haproxy, edit the config file with ``` sudo nano /etc/haproxy/haproxy.cfg ```  When you want to apply the changes, run ``` sudo service haproxy reload ```  If you break things and want to reset back, just run ``` sudo cp /etc/haproxy/haproxy.cfg.orig /etc/haproxy/haproxy.cfg && sudo service haproxy reload ```
+11. When you're all done, type ``` exit ``` at the shell to get back to your local terminal.
+12. To shut down the VM's, run ``` vagrant halt web1 web2 haproxy ```
+13. To remove the VM's from your hard drive, run ``` vagrant destroy web1 web2 haproxy ```
+14. Additional note: To verify Sticky session, check the cookies in browser inspect tool under Application tab. Try delete the cookie ```SRVNAME``` to see web server chnages.

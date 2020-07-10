@@ -28,16 +28,15 @@ frontend http-in
     default_backend webservers
 
 backend webservers
+    # load balancer roundrobin method
     balance roundrobin
-    # Poor-man's sticky
-    # balance source
-    # JSP SessionID Sticky
-    # appsession JSESSIONID len 52 timeout 3h
+    # Sticky session
+    cookie SRVNAME insert
     option httpchk
     option forwardfor
     option http-server-close
-    server web1 192.168.56.11:80 maxconn 32 check inter 5000 fall 5 rise 1
-    server web2 192.168.56.12:80 maxconn 32 check inter 5000 fall 5 rise 1
+    server web1 192.168.56.11:80 cookie W1 maxconn 32 check inter 5000 fall 5 rise 1
+    server web2 192.168.56.12:80 cookie W2 maxconn 32 check inter 5000 fall 5 rise 1
 
 listen admin
     bind *:8080
