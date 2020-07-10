@@ -18,7 +18,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     haproxy_config.vm.network :forwarded_port, guest: 8080, host: 8080
     haproxy_config.vm.network :forwarded_port, guest: 80, host: 8081
 
-    haproxy_config.vm.network :private_network, ip: "192.168.56.10"
+    haproxy_config.vm.network :private_network, ip: "192.168.56.1"
     haproxy_config.vm.provision :shell, :path => "haproxy-setup.sh"
 
   end

@@ -2,8 +2,8 @@
 
 if [ ! -f /etc/haproxy/haproxy.cfg ]; then
 
-  # Install haproxy # /usr/bin/apt-get update && 
-  /usr/bin/apt-get -y install haproxy
+  # Install haproxy # 
+  /usr/bin/apt-get update && /usr/bin/apt-get -y install haproxy
 
   # Configure haproxy
   cat > /etc/default/haproxy <<EOD
